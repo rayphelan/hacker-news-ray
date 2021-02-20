@@ -8,14 +8,38 @@
     "@testing-library/user-event": "^12.7.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-infinite-scroll-component": "^6.0.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "react-timeago": "^5.2.0",
+    "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "react-scripts test --env=jsdom --watchAll=false --coverage",
+    "clear_jest": "jest --clearCache",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/styles/*"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
   },
   "eslintConfig": {
     "extends": [
