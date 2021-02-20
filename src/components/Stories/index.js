@@ -37,11 +37,6 @@ const Stories = (props) => {
                 height: '100%',
                 overflow: 'visible',
               }}
-              endMessage={
-                <p style={{ textAlign: 'center' }}>
-                  <b>That's all folks!</b>
-                </p>
-              }
             >
               {
                 stories.map((story) => {

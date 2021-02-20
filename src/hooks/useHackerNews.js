@@ -10,7 +10,7 @@ const useHackerNews = (feed) => {
   const [statusText, setStatusText] = useState('');
   const [hasMore, setHasMore] = useState(true);
 
-  const STORY_LIMIT = 20;
+  const STORY_LIMIT = 15;
 
   const fetchStoriesPerPage = async () => {
     const getRange = (limit, page = 0) => ({

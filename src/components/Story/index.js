@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TimeAgo from 'react-timeago';
 
 const StoryContainer = styled.div`
   font-size: 1rem;
@@ -9,34 +10,46 @@ const StoryContainer = styled.div`
 
 const Title = styled.div`
   padding: 5px 0;
-  color: white;
 `;
 
 const By = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   padding: 3px 0;
-  color: #dddddd;
+  color: rgba(255,255,255,0.8);
+`;
+
+const Link = styled.a`
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+
+  &:hover {
+    font-weight: bold;
+    color: white;
+  }
 `;
 
 const Story = (props) => {
 
   const {
     by,
-    id,
     kids,
     score,
     time,
     title,
-    type,
     url,
   } = props.story;
   
   return (
     <StoryContainer>
-      <Title>
-        {title}
-      </Title>
-      <By>By: {by}</By>
+      <div className="typewriter">
+        <Link href={url} title={title} target="_blank">
+          <Title>{title}</Title>
+        </Link>
+        <By>
+          <TimeAgo date={new Date(time * 1000).toISOString()} />, by {by}
+          {` | score: ${score} ${kids ? ` | ${kids.length} comment${kids.length !== 1 ? 's' : ''}` : ''}`}
+        </By>
+      </div>
     </StoryContainer>
   );
 };
