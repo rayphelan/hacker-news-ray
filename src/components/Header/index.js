@@ -8,13 +8,15 @@ const Section = styled.section`
   h1 {
     font-size: 2rem;
     text-align: center;
+    color: white;
   }
+
 `;
 
 const Header = () => {
   return (
     <Section>
-      <h1>Hacker News - Ray Phelan</h1>
+      <h1>Hacker News</h1>
     </Section>
   );
 }
