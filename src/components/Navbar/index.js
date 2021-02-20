@@ -18,7 +18,7 @@ const Links = styled(NavLink)`
   }
 
   &.${activeClassName} {
-    color: red;
+    color: #ff812f;
     font-weight: bold;
   }
 `;
