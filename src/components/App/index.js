@@ -7,6 +7,7 @@ import {
 import Header from '../Header';
 import Navbar from '../Navbar';
 import HomePage from '../HomePage';
+import Stories from '../Stories';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       </div>
       <Switch>
         <Route path="/" component={HomePage} exact={true} />
+        <Route path="/:feed" component={Stories} />
       </Switch>
     </Router>
   );

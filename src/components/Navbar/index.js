@@ -27,10 +27,10 @@ const Navbar = () => {
   return (
     <Nav data-testid="navbar">
       <div className="nav-link">
-        <Links to="/top" activeClassName={activeClassName}>
+        <Links to="/topstories" activeClassName={activeClassName}>
           Top Stories
         </Links>
-        <Links to="/new" activeClassName={activeClassName}>
+        <Links to="/newstories" activeClassName={activeClassName}>
           Latest Stories
         </Links>
       </div>
