@@ -11,12 +11,22 @@ const Nav = styled.nav`
 const activeClassName = 'active';
 
 const Links = styled(NavLink)`
-  margin: 0 10px;
+  
   text-decoration: none;
-  border: 1px solid rgba(173, 255, 47, 0.5);
-  background-color: black;
   padding: 5px 10px;
-  border-radius: 4px;
+
+  @media only screen and (max-width: 499px) {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+
+
+    border: 1px solid rgba(173, 255, 47, 0.5);
+    background-color: black;
+    border-radius: 4px;
+    margin: 0 10px;
+
 
   &:visited {
     color: greenyellow;
