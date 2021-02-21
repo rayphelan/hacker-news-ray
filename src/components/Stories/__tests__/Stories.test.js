@@ -17,7 +17,7 @@ describe('<Stories> Test Suite', () => {
   it('Renders the <Stories> component correctly', () => {
     render(<Stories match={match} />);
 
-    //screen.debug();
+    screen.debug();
   });
 
 });

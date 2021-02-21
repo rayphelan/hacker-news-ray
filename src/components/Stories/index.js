@@ -11,7 +11,6 @@ const Stories = (props) => {
   const {
     stories,
     error,
-    status,
     statusText,
     fetchStoriesPerPage,
     hasMore,
@@ -20,9 +19,8 @@ const Stories = (props) => {
   return (
     <div className="container">
       {
-        error && (
+        error && !stories (
           <Error
-            status={status}
             statusText={statusText}
           />
         )

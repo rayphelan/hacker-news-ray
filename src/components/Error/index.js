@@ -7,16 +7,15 @@ const ErrorMessage = styled.div`
   padding-top: 1rem;
 `;
 
-const Error = ({ status, statusText }) => {
+const Error = ({ statusText }) => {
   return (
     <ErrorMessage>
-      {`ERROR ${status}: ${statusText}`}
+      {`Oops - ${statusText}`}
     </ErrorMessage>
   );
 };
 
 Error.propTypes = {
-  status: PropTypes.number.isRequired,
   statusText: PropTypes.string.isRequired,
 };
 

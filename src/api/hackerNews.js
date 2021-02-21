@@ -1,18 +1,18 @@
-const BASE_URL = 'https://hacker-news.firebaseio.com/v0';
-const DEFAULT_FEED = 'newstories';
+import axios from 'axios';
 
-export const request = (url) => {
-  return fetch(url).then(res => res.json());
-};
+export const BASE_URL = 'https://hacker-news.firebaseio.com/v0';
+export const DEFAULT_FEED = 'newstories';
 
 export const fetchStory = async (id) => {
   const url = `${BASE_URL}/item/${id}.json`;
-  const response = request(url);
+  const response = await axios.get(url).then(({ data }) => data);
+  
   return response;
 };
 
 export const fetchStoryIds = async (feed = DEFAULT_FEED) => {
   const url = `${BASE_URL}/${feed}.json`;
-  const response = request(url);
+  const response = await axios.get(url).then(({ data }) => data);
+  
   return response;
 };

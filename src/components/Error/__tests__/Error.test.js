@@ -8,13 +8,12 @@ describe('<Error> Test Suite', () => {
     cleanup();
   });
 
-  const status = 401;
   const statusText = 'Unauthorized';
 
   it('Renders the <Error> component correctly', () => {
-    render(<Error status={status} statusText={statusText} />);
+    render(<Error statusText={statusText} />);
 
-    expect(screen.getByText(/401: Unauthorized/)).toBeInTheDocument();
+    expect(screen.getByText(/Unauthorized/)).toBeInTheDocument();
 
   });
 
