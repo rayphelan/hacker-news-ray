@@ -7,7 +7,7 @@ const Section = styled.section`
   margin: 100px auto;
 
   @media only screen and (min-width: 499px) {
-    p {
+    h1 {
       padding: 100px;
     }
   }
@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <Section className="typewriter">
-        <p>Welcome to the Hacker News redesign</p>
+        <h1>Welcome to Hacker News V3</h1>
       </Section>
     </div>
   );
