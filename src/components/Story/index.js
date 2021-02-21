@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TimeAgo from 'react-timeago';
 
@@ -28,8 +29,7 @@ const Link = styled.a`
   }
 `;
 
-const Story = (props) => {
-
+const Story = ({ story }) => {
   const {
     by,
     kids,
@@ -37,7 +37,7 @@ const Story = (props) => {
     time,
     title,
     url,
-  } = props.story;
+  } = story;
   
   return (
     <StoryContainer>
@@ -52,6 +52,23 @@ const Story = (props) => {
       </div>
     </StoryContainer>
   );
+};
+
+Story.propTypes = {
+  story: PropTypes.shape({
+    by: PropTypes.string,
+    descendants: PropTypes.number,
+    id: PropTypes.number,
+    score: PropTypes.number,
+    time: PropTypes.number,
+    title: PropTypes.string,
+    type: PropTypes.string,
+    url: PropTypes.string,
+  }),
+};
+
+Story.defaultProps = {
+  story: {},
 };
 
 export default Story;
