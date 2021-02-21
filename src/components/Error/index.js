@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ErrorMessage = styled.div`
@@ -11,6 +12,11 @@ const Error = ({ status, statusText }) => {
       {`ERROR ${status}: ${statusText}`}
     </ErrorMessage>
   );
+};
+
+Error.propTypes = {
+  status: PropTypes.string.isRequired,
+  statusText: PropTypes.string.isRequired,
 };
 
 export default Error;

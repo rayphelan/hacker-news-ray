@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Error from '../Error';
 import Story from '../Story';
 import Loader from '../Loader';
@@ -40,7 +41,7 @@ const Stories = (props) => {
             >
               {
                 stories.map((story) => {
-                  return <Story key={story.id} story={story} />
+                  return story && <Story key={story.id} story={story} />
                 })
               }
             </InfiniteScroll>
@@ -48,6 +49,25 @@ const Stories = (props) => {
       }
     </div>
   );
+};
+
+Stories.propTypes = {
+  history: PropTypes.instanceOf(Object),
+  location: PropTypes.instanceOf(Object),
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      feed: PropTypes.string,
+    }),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }),
+};
+
+Stories.defaultProps = {
+  history: {},
+  location: {},
+  match: {},
 };
 
 export default Stories;
