@@ -36,9 +36,9 @@ export const Animation = styled.div`
 
 const Loader = () => (
   <Animation>
-    <span>.</span>
-    <span>.</span>
-    <span>.</span>
+    <span data-testid="dot1">.</span>
+    <span data-testid="dot2">.</span>
+    <span data-testid="dot3">.</span>
   </Animation>
 );
 

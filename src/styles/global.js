@@ -24,9 +24,13 @@ const GlobalStyles = createGlobalStyle`
     border: 1px solid rgba(173, 255, 47, 0.5);
     border-radius: 5px;
     background-color: rgba(0,0,0,0.85);
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
     max-width: 88%;
     margin: 1rem auto;
+  }
+
+  .nav-link a {
+    color: greenyellow;
   }
 
   @media only screen and (min-width: 1000px) {

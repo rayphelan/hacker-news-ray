@@ -11,14 +11,14 @@ import Stories from '../Stories';
 
 const App = () => {
   return (
-    <Router>
+    <Router data-testid="router">
       <div className="container">
-        <Header />
-        <Navbar />
+        <Header data-testid="header" />
+        <Navbar data-testid="navbar" />
       </div>
-      <Switch>
-        <Route path="/" component={HomePage} exact={true} />
-        <Route path="/:feed" component={Stories} />
+      <Switch data-testid="switch">
+        <Route data-testid="homepage" path="/" component={HomePage} exact={true} />
+        <Route data-testid="feedpage" path="/:feed" component={Stories} />
       </Switch>
     </Router>
   );

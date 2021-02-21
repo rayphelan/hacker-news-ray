@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const ErrorMessage = styled.div`
   color: red;
+  padding-top: 1rem;
 `;
 
 const Error = ({ status, statusText }) => {
@@ -15,7 +16,7 @@ const Error = ({ status, statusText }) => {
 };
 
 Error.propTypes = {
-  status: PropTypes.string.isRequired,
+  status: PropTypes.number.isRequired,
   statusText: PropTypes.string.isRequired,
 };
 

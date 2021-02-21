@@ -6,7 +6,6 @@ const useHackerNews = (feed) => {
   const [stories, setStories] = useState([]);
   const [storyIds, setStoryIds] = useState([]);
   const [error, setError] = useState(false);
-  const [status, setStatus] = useState('');
   const [statusText, setStatusText] = useState('');
   const [hasMore, setHasMore] = useState(true);
 
@@ -40,24 +39,22 @@ const useHackerNews = (feed) => {
     setPage(0);
     setStories([]);
     fetchStoryIds(feed)
-      .then(({ data, ok, status, statusText}) => {
-        setStoryIds(data);
-        setError(!ok);
-        if (!ok) {
-          setStatus(status);
-          setStatusText(statusText);
+      .then(data => {
+        if (data && data.error) {
+          setError(true);
+          setStatusText(data.error);
         }
         else {
+          setStoryIds(data);
           setPage(page + 1);
         }
       })
       .catch(error => {
-        setStatus('Error');
         setStatusText(error);
       });
   }, [feed]);
   
-  return { hasMore, error, status, statusText, fetchStoriesPerPage, stories };
+  return { hasMore, error, statusText, fetchStoriesPerPage, stories };
 };
 
 export default useHackerNews;

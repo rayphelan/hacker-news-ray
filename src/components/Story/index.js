@@ -13,11 +13,15 @@ const Title = styled.div`
   padding: 5px 0;
 `;
 
-const By = styled.div`
+const By = styled.span`
   font-size: 0.75rem;
   padding: 3px 0;
   color: rgba(255,255,255,0.8);
 `;
+
+const TimeSpan = styled(By)``;
+const Score = styled(By)``;
+const Kids = styled(By)``;
 
 const Link = styled.a`
   color: rgba(255,255,255,0.9);
@@ -28,6 +32,7 @@ const Link = styled.a`
     color: white;
   }
 `;
+
 
 const Story = ({ story }) => {
   const {
@@ -42,13 +47,28 @@ const Story = ({ story }) => {
   return (
     <StoryContainer>
       <div className="typewriter">
-        <Link href={url} title={title} target="_blank">
+        <Link data-testid="storylink" href={url} title={title} target="_blank">
           <Title>{title}</Title>
         </Link>
-        <By>
-          <TimeAgo date={new Date(time * 1000).toISOString()} />, by {by}
-          {` | score: ${score} ${kids ? ` | ${kids.length} comment${kids.length !== 1 ? 's' : ''}` : ''}`}
-        </By>
+        { 
+          time &&
+            <TimeSpan>
+              <TimeAgo date={new Date(time * 1000).toISOString()} />
+              {' | '}
+            </TimeSpan>
+        }
+        {
+          by &&
+            <By>{by}{' | '}</By>
+        }
+        {
+          score &&
+            <Score>{`score: ${score}`}{' | '}</Score>
+        }
+        {
+          kids &&
+            <Kids>{`${kids.length} comment${kids.length !== 1 && 's'}`}</Kids>
+        }
       </div>
     </StoryContainer>
   );

@@ -20,15 +20,15 @@ const Stories = (props) => {
   return (
     <div className="container">
       {
-        error ? (
+        error && (
           <Error
             status={status}
             statusText={statusText}
           />
-        ) : null
+        )
       }
       {
-        stories ? (
+        stories && (
             <InfiniteScroll
               dataLength={stories.length}
               next={fetchStoriesPerPage}
@@ -45,7 +45,7 @@ const Stories = (props) => {
                 })
               }
             </InfiniteScroll>
-        ) : null
+        )
       }
     </div>
   );
